@@ -80,17 +80,17 @@
 
         <h1 class="text-6xl text-center pb-8 pt-40 font-bold">Open Source Projects</h1>
 
-        <div class="w-full overflow-x-auto flex-nowrap flex items-center py-4">
+        <div class="h-[600px] w-full overflow-x-auto flex-nowrap flex items-center py-4">
 
             <div class="text-5xl px-4">&#8594;</div>
 
-            <div class="h-[600px]" *ngFor="let project of projects$ | async">
-                <div [ngSwitch]="project.projectType" class="flex p-2 h-full">
+            <div class="h-full whitespace-nowrap overflow-x-auto" *ngFor="let project of projects$ | async">
+                <div [ngSwitch]="project.projectType" class="h-full whitespace-normal px-2">
                     <article *ngSwitchCase="projectTypes.mobile"
-                        class="group relative box-border rounded-3xl bg-zinc-700 overflow-hidden border-y-[30px] border-x-8 border-zinc-700 drop-shadow-xl">
+                        class="group relative h-full box-border rounded-3xl overflow-hidden bg-zinc-700 border-y-[30px] border-x-8 border-zinc-700 drop-shadow-xl">
                         <a [href]="project.link" target="_blank">
                             <div [ngSwitch]="project.mediaType"
-                                class="relative rounded overflow-hidden h-full aspect-[9/20]">
+                                class="relative rounded h-full">
                                 <img *ngSwitchCase="mediaTypes.image" [src]="project.media" class="object-cover h-full">
                                 <video *ngSwitchCase="mediaTypes.video" [src]="project.media"
                                     class="object-cover h-full" autoplay loop muted></video>
@@ -100,28 +100,7 @@
                                 <div
                                     class="opacity-0 group-hover:opacity-100 -bottom-[100px] group-hover:bottom-0 transition-all ease-in duration-600 pointer-events-none absolute left-0 right-0 p-8">
                                     <p class="text-xs">{{project.technology}}</p>
-                                    <h1 class="text-3xl font-bold">{{project.appName}}</h1>
-                                    <p>{{project.description}}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-                    <article *ngSwitchCase="projectTypes.package"
-                        class="group relative box-border rounded-3xl bg-zinc-700 overflow-hidden my-28 border-8 border-zinc-700 drop-shadow-xl">
-                        <a [href]="project.link" target="_blank">
-                            <div [ngSwitch]="project.mediaType"
-                                class="relative rounded overflow-hidden h-full aspect-1">
-                                <img *ngSwitchCase="mediaTypes.image" [src]="project.media"
-                                    class="object-cover w-full h-full">
-                                <video *ngSwitchCase="mediaTypes.video" [src]="project.media"
-                                    class="object-cover h-full" autoplay loop muted controls=""></video>
-                                <div
-                                    class="opacity-0 group-hover:opacity-100 transition-all ease-in duration-200 absolute w-full h-full bg-black bg-opacity-80 top-0 left-0 right-0 bottom-0">
-                                </div>
-                                <div
-                                    class="opacity-0 group-hover:opacity-100 -bottom-[100px] group-hover:bottom-0 transition-all ease-in duration-600 pointer-events-none absolute left-0 right-0 p-8">
-                                    <p class="text-xs">{{project.technology}}</p>
-                                    <h1 class="text-xl font-bold">{{project.appName}}</h1>
+                                    <h1 class="text-xs font-bold">{{project.appName}}</h1>
                                     <p>{{project.description}}</p>
                                 </div>
                             </div>
