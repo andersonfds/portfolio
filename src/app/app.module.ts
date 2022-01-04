@@ -1,10 +1,19 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { routing } from './routing/routing';
+
+const providers : Provider[] = [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: BaseUrlInterceptor,
+    multi: true,
+  }
+];
 
 @NgModule({
   declarations: [
@@ -15,7 +24,7 @@ import { routing } from './routing/routing';
     RouterModule.forRoot(routing),
     HttpClientModule,
   ],
-  providers: [],
+  providers,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
