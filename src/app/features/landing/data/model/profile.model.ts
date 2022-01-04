@@ -9,4 +9,5 @@ export interface Social {
     icon: string;
     url: string;
     target: string;
+    color: string;
 }

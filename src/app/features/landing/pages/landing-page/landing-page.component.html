@@ -147,7 +147,7 @@
             <div class="text-3xl">
 
                 <a *ngFor="let social of me.social" [href]="social.url" [target]="social.target">
-                    <i class="mdi" [ngClass]="social.icon"></i>
+                    <i class="mdi" [ngClass]="social.icon" [ngStyle]="{color: social.color}"></i>
                 </a>
             </div>
         </div>
