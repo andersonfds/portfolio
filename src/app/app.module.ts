@@ -2,6 +2,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { NgxShimmerLoadingModule } from 'ngx-shimmer-loading';
 
 import { AppComponent } from './app.component';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
@@ -23,6 +24,7 @@ const providers : Provider[] = [
     BrowserModule,
     RouterModule.forRoot(routing),
     HttpClientModule,
+    NgxShimmerLoadingModule,
   ],
   providers,
   bootstrap: [AppComponent]
