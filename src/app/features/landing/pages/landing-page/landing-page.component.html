@@ -84,7 +84,7 @@
 
             <div class="text-5xl px-4">&#8594;</div>
 
-            <div class="h-full whitespace-nowrap overflow-x-auto" *ngFor="let project of projects$ | async">
+            <div class="h-full flex-shrink-0 whitespace-nowrap overflow-x-auto" *ngFor="let project of projects$ | async">
                 <div [ngSwitch]="project.projectType" class="h-full whitespace-normal px-2">
                     <article *ngSwitchCase="projectTypes.mobile"
                         class="group relative h-full box-border rounded-3xl overflow-hidden bg-zinc-700 border-y-[30px] border-x-8 border-zinc-700 drop-shadow-xl">
