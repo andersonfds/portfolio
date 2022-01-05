@@ -1,22 +1,23 @@
-name: Webpage Build
+name: Deploy to GitHub Pages via angular-cli-ghpages
 
 on: [push]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: setup node
-      uses: actions/setup-node@v2-beta
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
       with:
-        node-version: '12'
-    - name: install deps and predeploy
+        node-version: 14.x
+
+    - name: Prepare and deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm install
-    - name: Deploy 
-      uses: JamesIves/github-pages-deploy-action@3.5.2
-      with:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        BRANCH: main
-        FOLDER: build
+        npm run ng -- deploy --no-silent
