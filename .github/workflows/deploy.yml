@@ -1,16 +1,22 @@
-name: Deploy job
+name: Webpage Build
+
 on: [push]
+
 jobs:
-  deploy:
-    name: Deploy
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          cmd: deploy
+    - uses: actions/checkout@v2
+    - name: setup node
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+    - name: install deps and predeploy
+      run: |
+        npm install
+    - name: Deploy 
+      uses: JamesIves/github-pages-deploy-action@3.5.2
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        BRANCH: main
+        FOLDER: build
