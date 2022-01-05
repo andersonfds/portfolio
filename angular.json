@@ -109,7 +109,9 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "repo": "https://github.com/andersonfds/andersonfds.github.io.git",
-            "branch": "main"
+            "branch": "main",
+            "name": "Anderson Freitas",
+            "email": "freitas@disroot.org"
           }
         }
       }
