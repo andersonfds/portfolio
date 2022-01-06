@@ -36,10 +36,12 @@ describe('BaseUrlInterceptor', () => {
   });
 
   it('should use the environment as base url when the request doesnt start with http', () => {
+    const requestUrl = `${environment.apiUrl}profile`;
     service.getProfile().subscribe((res) => {
       expect(res).toBeTruthy();
     });
-    httpMock.expectOne(`${environment.apiUrl}profile`);
+    const request = httpMock.expectOne(requestUrl);
+    expect(request.request.url).toBe(requestUrl);
   });
 
   it('should throw an error if the request starts with a "/"', () => {
