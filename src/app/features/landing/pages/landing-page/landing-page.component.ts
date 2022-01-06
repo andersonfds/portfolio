@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
+import { Observable, of, shareReplay } from 'rxjs';
 import { ProfileModel } from '../../data/model/profile.model';
 import { MediaType, ProjectResumeModel, ProjectType } from '../../data/model/project_resume.model';
 import { LandingService } from '../../data/remote/landing.service';
@@ -14,6 +14,7 @@ export class LandingPageComponent implements OnInit {
   // observables
   public projects$!: Observable<ProjectResumeModel[]>;
   public profile$!: Observable<ProfileModel>;
+  public date$!: Observable<Date>;
 
   // public enumerators
   public mediaTypes = MediaType;
@@ -24,9 +25,6 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     this.projects$ = this.landingService.getProjectsResume();
     this.profile$ = this.landingService.getProfile().pipe(shareReplay());
-  }
-
-  public get currentDate(): Date {
-    return new Date();
+    this.date$ = of(new Date());
   }
 }
