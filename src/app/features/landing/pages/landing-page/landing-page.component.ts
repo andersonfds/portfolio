@@ -7,24 +7,17 @@ import { LandingService } from '../../data/remote/landing.service';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
 
   // observables
-  public projects$!: Observable<ProjectResumeModel[]>;
-  public profile$!: Observable<ProfileModel>;
-  public date$!: Observable<Date>;
+  public projects$: Observable<ProjectResumeModel[]> = this.landingService.getProjectsResume();
+  public profile$: Observable<ProfileModel> = this.landingService.getProfile().pipe(shareReplay());
+  public date$: Observable<Date> = of(new Date());
 
   // public enumerators
   public mediaTypes = MediaType;
   public projectTypes = ProjectType;
 
   constructor(private readonly landingService: LandingService) { }
-
-  ngOnInit(): void {
-    this.projects$ = this.landingService.getProjectsResume();
-    this.profile$ = this.landingService.getProfile().pipe(shareReplay());
-    this.date$ = of(new Date());
-  }
 }
