@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
@@ -21,7 +24,8 @@ jobs:
     - name: Install yarn
       run: npm install -g yarn
 
-    - name: Prepare and deploy
-      run: |
-        yarn install --frozen-lockfile
-        && yarn deploy --no-silent
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+
+    - name: Deploy
+      run: yarn deploy --no-silent
