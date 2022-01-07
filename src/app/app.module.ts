@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { routing } from './routing/routing';
 
-const providers : Provider[] = [
+const providers: Provider[] = [
   {
     provide: HTTP_INTERCEPTORS,
     useClass: BaseUrlInterceptor,
@@ -22,7 +22,7 @@ const providers : Provider[] = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routing),
+    RouterModule.forRoot(routing, { useHash: true }),
     HttpClientModule,
     NgxShimmerLoadingModule,
   ],
