@@ -4,7 +4,20 @@
 
 This is the source-code for the [andersonfds.github.io](https://andersonfds.github.io) portfolio.
 
-Built with:
+**Built with:**
 
 - Angular
 - TailwindCSS
+
+**Features to highlight:**
+
+- Automatized build process with CI/CD
+- Responsive design
+- Unit tests
+- Proper use of rxjs
+- RESTful API communication
+
+**TODOS:**
+
+- [ ] Implement localStorage cache
+- [ ] e2e tests
