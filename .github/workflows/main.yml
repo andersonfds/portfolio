@@ -22,9 +22,7 @@ jobs:
       run: npm install -g yarn
 
     - name: Install dependencies
-      uses: actions/setup-node@v1
       run: yarn install --frozen-lockfile
 
     - name: Deploy
-      uses: actions/setup-node@v1
       run: yarn deploy --no-silent
