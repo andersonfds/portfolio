@@ -4,12 +4,14 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { RouterModule } from '@angular/router';
 import { landingRoutes } from './landing.routes';
 import { NgxShimmerLoadingModule } from 'ngx-shimmer-loading';
+import { LandingHeaderComponent } from './components/landing-header/landing-header.component';
 
 
 
 @NgModule({
   declarations: [
     LandingPageComponent,
+    LandingHeaderComponent,
   ],
   imports: [
     CommonModule,
