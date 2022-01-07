@@ -13,17 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    
+    - name: Install yarn
+      run: npm install -g yarn
 
     - name: Install dependencies
-      uses: borales/actions-yarn@v2.3.0
-      with:
-        cmd: install --frozen-lockfile
+      uses: actions/setup-node@v1
+      run: yarn install --frozen-lockfile
 
-    - name: Prepare and deploy
-      uses: borales/actions-yarn@v2.3.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.MASTER_TOKEN }}
-      with:
-        cmd: deploy --no-silent
+    - name: Deploy
+      uses: actions/setup-node@v1
+      run: yarn deploy --no-silent
