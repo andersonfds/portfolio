@@ -26,6 +26,8 @@ jobs:
 
     - name: Run unit tests
       uses: borales/actions-yarn@v2.3.0
+      env:
+        CHROME_BIN: $(which chrome)
       with:
         cmd: test --no-watch --no-progress --browsers=ChromeHeadlessCI
 
