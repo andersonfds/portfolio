@@ -26,4 +26,6 @@ jobs:
       run: yarn install --frozen-lockfile
 
     - name: Deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.MASTER_TOKEN }}
       run: yarn deploy --no-silent
