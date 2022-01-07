@@ -21,8 +21,7 @@ jobs:
     - name: Install yarn
       run: npm install -g yarn
 
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-
-    - name: Deploy
-      run: npm run deploy -- --no-silent
+    - name: Prepare and deploy
+      run: |
+        yarn install --frozen-lockfile
+        && yarn deploy --no-silent
