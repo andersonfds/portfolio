@@ -25,4 +25,4 @@ jobs:
       run: yarn install --frozen-lockfile
 
     - name: Deploy
-      run: yarn deploy --no-silent
+      run: npm run deploy -- --no-silent
