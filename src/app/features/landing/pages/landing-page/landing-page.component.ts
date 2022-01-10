@@ -31,14 +31,13 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.projectMargin$ = this.projects$.pipe(
-      first(),
-      map((values) => values[0]),
-      tap((value) => this.projectSelector.next(value)),
-      switchMap(() => this.projectSelector.asObservable()),
+    /// automatic carousel enabled
+    this.subscriptions.push(interval(5000).subscribe(() => this.nextProject()));
+
+    /// when project changes, update the margin to the next project
+    this.projectMargin$ = this.projectSelector.pipe(
       map(project => -1 * (this.document.getElementById('proj--' + project?.id)?.offsetLeft || 0)),
     );
-    this.subscriptions.push(interval(5000).subscribe(() => this.nextProject()));
   }
 
   async nextProject() {
@@ -48,7 +47,7 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
       this.projectSelector.next(nextProject);
   }
 
-  getNextProject(): Promise<ProjectResumeModel | undefined> {
+  private getNextProject(): Promise<ProjectResumeModel | undefined> {
     return firstValueFrom(this.projects$
       .pipe(
         first(),
