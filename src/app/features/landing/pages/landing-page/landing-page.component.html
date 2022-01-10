@@ -66,7 +66,8 @@
 
     <button (click)="nextProject()" class="rounded-full w-12 h-12 m-auto block text-3xl bg-white text-black"><i class="mdi mdi-chevron-right"></i></button>
 
-    <div class="h-[600px] relative ">
+    <div class="h-[600px] relative">
+        <div class="hidden md:block pointer-events-none bg-gradient-to-r from-zinc-900 to-zinc-900 via-transparent w-full h-full opacity-50 absolute z-10"></div>
         <div class="absolute transition-all duration-500 h-full overflow-hidden flex-nowrap flex items-center py-4" [ngStyle]="{
             'margin-left': (projectMargin$ | async) + 'px'
         }">
