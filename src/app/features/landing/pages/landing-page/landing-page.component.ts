@@ -17,7 +17,7 @@ export class LandingPageComponent implements AfterViewInit, OnDestroy {
   private subscriptions = new Array<Subscription>();
 
   // observables
-  public projects$: Observable<ProjectResumeModel[]> = this.landingService.getProjectsResume();
+  public projects$: Observable<ProjectResumeModel[]> = this.landingService.getProjectsResume().pipe(shareReplay(1));
   public profile$: Observable<ProfileModel> = this.landingService.getProfile().pipe(shareReplay());
   public date$: Observable<Date> = of(new Date());
 
