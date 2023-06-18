@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="absolute -bottom-[30px] left-0 right-0 -z-1">
+    <div class="absolute -bottom-[50px] left-0 right-0 -z-10">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#48de80" fill-opacity="1"
                 d="M0,192L24,202.7C48,213,96,235,144,218.7C192,203,240,149,288,154.7C336,160,384,224,432,218.7C480,213,528,139,576,117.3C624,96,672,128,720,122.7C768,117,816,75,864,74.7C912,75,960,117,1008,117.3C1056,117,1104,75,1152,64C1200,53,1248,75,1296,90.7C1344,107,1392,117,1416,122.7L1440,128L1440,320L1416,320C1392,320,1344,320,1296,320C1248,320,1200,320,1152,320C1104,320,1056,320,1008,320C960,320,912,320,864,320C816,320,768,320,720,320C672,320,624,320,576,320C528,320,480,320,432,320C384,320,336,320,288,320C240,320,192,320,144,320C96,320,48,320,24,320L0,320Z">
@@ -28,33 +28,10 @@
 </div>
 
 <div class="min-h-screen bg-green-400 text-zinc-900" id="about">
-
-    <h1 class="text-6xl text-center py-8 pt-40 font-bold">Get to know me</h1>
-
-    <div class="pb-10">
+    <h1 class="text-6xl text-center py-8 font-bold">Get to know me</h1>
+    <div class="pb-10" *ngIf="readme$ | async as readme" >
         <div class="md:w-4/6 max-w-[600px] mx-auto px-8 md:px-0">
-            <div class="text-2xl pb-4 font-bold">Basically,</div>
-            <ol class="list-decimal px-4">
-                <li class="my-2">I started working as a full-stack software developer, but when I really, really got
-                    into programming I was like <span class="text-lg font-bold">15</span>, messing around with a 3D
-                    rendering software called Blender.</li>
-
-                <li class="my-2">On Blender, it was possible to program using Python, that's when I discovered my
-                    passion was programming, not 3D rendering.</li>
-
-                <li class="my-2">After I graduated high school, I started my graduation and on my 2nd year I got my
-                    first internship.</li>
-
-                <li class="my-2">Then I got a full-time job (since the place was very flexible, I managed to work
-                    and
-                    study)</li>
-
-                <li class="my-2">Discovered my love for mobile engineering</li>
-
-                <li class="my-2">Got a mobile engineering job</li>
-            </ol>
-
-            <div class="text-3xl pt-4 font-bold">The rest is history.</div>
+            <markdown [src]="readme"></markdown>
         </div>
     </div>
 

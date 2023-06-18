@@ -1,5 +1,5 @@
 <div
-    class="bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-95 drop-shadow-xl fixed w-full top-0 border-b border-b-zinc-700 z-20">
+    class="bg-clip-padding bg-opacity-95 drop-shadow-xl fixed w-full top-0 border-b border-b-zinc-700 z-20">
     <div class="bg-black bg-opacity-60">
 
         <header class="container mx-auto px-5 py-5 flex items-center justify-between">
@@ -9,7 +9,7 @@
                     [src]="me.avatar" alt="Selfie of a handsome man">
 
                 <ng-template #profileLoading>
-                    <ngx-shimmer-loading width="100%" shape="circle"></ngx-shimmer-loading>
+                    <div class="w-full h-full rounded-full bg-gray-100"></div>
                 </ng-template>
             </div>
 

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { landingRoutes } from './landing.routes';
-import { NgxShimmerLoadingModule } from 'ngx-shimmer-loading';
+import { MarkdownModule } from 'ngx-markdown';
 import { LandingHeaderComponent } from './components/landing-header/landing-header.component';
+import { landingRoutes } from './landing.routes';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 
 
@@ -16,7 +16,7 @@ import { LandingHeaderComponent } from './components/landing-header/landing-head
   imports: [
     CommonModule,
     RouterModule.forChild(landingRoutes),
-    NgxShimmerLoadingModule,
+    MarkdownModule,
   ],
 })
 export class LandingModule { }

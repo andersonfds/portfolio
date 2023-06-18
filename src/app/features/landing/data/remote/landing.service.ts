@@ -10,7 +10,6 @@ import { ProjectResumeResponseModel } from '../model/response/project_resume_res
   providedIn: 'root'
 })
 export class LandingService {
-
   constructor(private readonly http: HttpClient) { }
 
   getProjectsResume(): Observable<ProjectResumeModel[]> {
